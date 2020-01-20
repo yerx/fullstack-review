@@ -24,12 +24,9 @@ class App extends React.Component {
       url: 'http://localhost:1128/repos',
       method: 'GET',
     })
-    // done does not pass any data
     .then((response) => {
-      // will the data returned be an array of objects?
-      console.log('get data', response)
-      // let newRepoList = data;
-      // this.setState({repos: response.data})
+      let newRepoList = response;
+      this.setState({repos: response});
     })
   }
 
