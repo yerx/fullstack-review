@@ -25,7 +25,6 @@ class App extends React.Component {
       method: 'GET',
     })
     .then((response) => {
-      let newRepoList = response;
       this.setState({repos: response});
     })
   }
