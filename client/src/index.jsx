@@ -21,7 +21,7 @@ class App extends React.Component {
 
   updateRepoResults() {
     $.ajax({
-      url: 'http://localhost:1128/repos',
+      url: window.location.href + 'repos',
       // url: '/repos'
       method: 'GET',
     })
@@ -34,7 +34,7 @@ class App extends React.Component {
     console.log(`${term} was searched`);
     // TODO
     $.ajax({
-      url: 'http://localhost:1128/repos',
+      url: window.location.href + 'repos',
       // url: '/repos'
       method: 'POST',
       data: {
@@ -43,7 +43,7 @@ class App extends React.Component {
     })
     .then(() => {
       this.updateRepoResults();
-    })
+  })
   }
 
   render () {

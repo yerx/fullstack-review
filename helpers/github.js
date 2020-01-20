@@ -1,5 +1,12 @@
 const request = require('request');
-const config = require('../config.js');
+require('dotenv').config()
+// const config = require('../config.js');
+// var config;
+// if(process.env.NODE_ENV === 'production') {
+//   config = process.env.GITHUB_TOKEN;
+// } else {
+//   config = require('../config.js');
+// }
 
 // username
 let getReposByUsername = (username, callback) => {
@@ -15,8 +22,9 @@ let getReposByUsername = (username, callback) => {
     url: githubAPI,
     headers: {
       'User-Agent': 'request',
-      'Authorization': `token ${config.TOKEN}`
-      // 'Authorization': `token ${process.env.GITHUB_TOKEN}`
+      // 'Authorization': `token ${config.TOKEN}`
+      // 'Authorization': `token ${config.GITHUB_TOKEN} || ${config.GITHUB_TOKEN}`
+      'Authorization': `token ${process.env.GITHUB_TOKEN}`,
     }
   };
   request(options, (error, response, body) => {
@@ -24,6 +32,7 @@ let getReposByUsername = (username, callback) => {
       console.error(error);
     }
     let repoData = JSON.parse(body);
+    // console.log(repoData)
     callback(null, repoData);
   });
 }
