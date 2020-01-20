@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
-// mongoose.connect('mongodb://localhost/fetcher', {
-//   useMongoClient: true,
-// });
-
-mongoose.connect(`${process.env.MONGODB_URI}`, {
+mongoose.connect('mongodb://localhost/fetcher', {
   useMongoClient: true,
 });
+
+// mongoose.connect(`${process.env.MONGODB_URI}`, {
+//   useMongoClient: true,
+// });
 
 let db = mongoose.connection;
 

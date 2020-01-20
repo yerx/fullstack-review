@@ -21,8 +21,8 @@ class App extends React.Component {
 
   updateRepoResults() {
     $.ajax({
-      // url: 'http://localhost:1128/repos',
-      url: '/repos'
+      url: 'http://localhost:1128/repos',
+      // url: '/repos'
       method: 'GET',
     })
     .then((response) => {
@@ -34,8 +34,8 @@ class App extends React.Component {
     console.log(`${term} was searched`);
     // TODO
     $.ajax({
-      // url: 'http://localhost:1128/repos',
-      url: '/repos'
+      url: 'http://localhost:1128/repos',
+      // url: '/repos'
       method: 'POST',
       data: {
         username: term,
